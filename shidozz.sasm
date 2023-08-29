@@ -2,7 +2,7 @@ global _shidozz
     add A0 5
     rem A1 2
     add A4 6
-    add B5 12
+    add A5 12
     rem A1 2
     add A4 6
     add A0 5
