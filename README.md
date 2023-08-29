@@ -4,9 +4,9 @@
 Sasm (Shidozz Assembler) is a low-level programming language designed for system programming and low-level access to computer resources. This project contains the assembler for the Sasm language.
 
 ## Features
-Hexadecimal notation: `(0x000000) to (0xFFFFFF)`
-Registers: `A0-A9`, `B0-B4`, `ST`, `PR`, `CR`, `NX`
-Keywords: `ret`, `add`, `rem`, `set`, `jmp`, `ver`, `jie`, `jin`, `jis`, `jii`, `global`, `extern`
+1) Hexadecimal notation: `(0x000000) to (0xFFFFFF)`
+2) Registers: `A0-A9`, `B0-B4`, `ST`, `PR`, `CR`, `NX`
+3) Keywords: `ret`, `add`, `rem`, `set`, `jmp`, `ver`, `jie`, `jin`, `jis`, `jii`, `global`, `extern`
 ## Getting Started
 ### Prerequisites
 ```
