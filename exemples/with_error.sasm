@@ -1,0 +1,5 @@
+global _shidozz
+    add A0 1 
+    ver A0 0
+    jin _shidozz
+    ret

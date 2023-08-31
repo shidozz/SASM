@@ -43,11 +43,11 @@ int Sasm(const char *inputF, const char *outputF) {
                 printf("Error(%s : %d): Bad token type used! This type of token (%s) can't be used in a %s opcode\n", inputF, i, TokenToString(instructions[i].operand2), KeywordToString(instructions[i].opcode));
             return 1;
         } else if(instructions[i].opcode == KW_RET){
-            printf("Instruction %d: Opcode=%s\n", i, KeywordToString(instructions[i].opcode));
-        } else if(instructions[i].opcode == KW_GLOBAL || instructions[i].opcode == KW_EXTERN){
-            printf("Instruction %d: Opcode=%s, Operand1= {type: %s, value: %s}\n", i, KeywordToString(instructions[i].opcode), TokenToString(instructions[i].operand1), instructions[i].operand1.value);
-        } else{
-            printf("Instruction %d: Opcode=%s, Operand1= {type: %s, value: %s}, Operand2={type: %s, value: %s}\n", i, KeywordToString(instructions[i].opcode), TokenToString(instructions[i].operand1), instructions[i].operand1.value, TokenToString(instructions[i].operand2), instructions[i].operand2.value);
+            printf("Instruction %d: Opcode = %s\n", i, KeywordToString(instructions[i].opcode));
+        } else if(instructions[i].opcode == KW_GLOBAL || instructions[i].opcode == KW_EXTERN || instructions[i].opcode == KW_JIE || instructions[i].opcode == KW_JIN || instructions[i].opcode == KW_JII || instructions[i].opcode == KW_JIS){
+            printf("Instruction %d: Opcode = %s, Operand1 = {type: %s, value: %s}\n", i, KeywordToString(instructions[i].opcode), TokenToString(instructions[i].operand1), instructions[i].operand1.value);
+        } else {
+            printf("Instruction %d: Opcode = %s, Operand1 = {type: %s, value: %s}, Operand2 = {type: %s, value: %s}\n", i, KeywordToString(instructions[i].opcode), TokenToString(instructions[i].operand1), instructions[i].operand1.value, TokenToString(instructions[i].operand2), instructions[i].operand2.value);
         }
     }
     free(input);
