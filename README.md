@@ -1,51 +1,55 @@
-# Sasm Programming Language
+# Langage de programmation Sasm
 
 ## Introduction
-Sasm (Shidozz Assembler) is a low-level programming language designed for system programming and low-level access to computer resources. This project contains the assembler for the Sasm language.
+Sasm (Shidozz Assembler) est un langage de programmation de bas niveau conçu pour la programmation système et l'accès de bas niveau aux ressources informatiques. Ce projet contient l'assembleur pour le langage Sasm.
 
-## Features
-1) Hexadecimal notation: `(0x000000) to (0xFFFFFF)`
-2) Registers: `A0-A9`, `B0-B4`, `ST`, `PR`, `CR`, `NX`
-3) Keywords: `ret`, `add`, `rem`, `set`, `jmp`, `ver`, `jie`, `jin`, `jis`, `jii`, `global`, `extern`
-## Getting Started
-### Prerequisites
+## Fonctionnalités
+1) Notation hexadécimale : `(0x000000) à (0xFFFFFF)`
+2) Registres : `A0-A9`, `B0-B4`
+3) Mots-clés : `ret`, `add`, `rem`, `set`, `jmp`, `ver`, `jie`, `jin`, `jis`, `jii`, `global`, `extern`
+
+## Pour commencer
+### Prérequis
 ```
-GCC Compiler
+Compilateur GCC
 Make
 ```
+
 ## Compilation
-### To compile the Sasm compiler:
+### Pour compiler le compilateur Sasm :
 ```
 make
 ```
-This will produce an executable named `sasm.exe`.
+Cela produira un exécutable nommé `sasm.exe`.
 
-### To assemble and run a Sasm program:
-
+### Pour assembler et exécuter un programme Sasm :
 ```bash
-./sasm.exe your_program.sasm
+./sasm.exe input.sasm -o output.bts
 ```
-## Examples
-### Basic operation with registers:
+
+## Exemples
+### Opération basique avec les registres :
 ```
 global _start
     add A0 1
     ret
 ```
-### Jump operations:
+
+### Opérations de saut :
 ```
 global _start
     add A0 5
     jmp A1
 ```
+
 ## Bytecode
-For detailed on Bytecode, please refor to the [Bytecode](docs/Bytecode.md).
+Pour plus de détails sur le Bytecode, veuillez vous référer à la [documentation du Bytecode](docs/Bytecode.md).
 
 ## Documentation
-For detailed language specifications and advanced topics, please refer to the [Wiki](#) (coming soon).
+Pour des spécifications détaillées du langage et des sujets avancés, veuillez vous référer au [Wiki](#) (à venir).
 
-## Contributing
-Contributions are welcome! Please read the contributing guidelines before making a PR.
+## Contribution
+Les contributions sont les bienvenues ! Veuillez lire les directives de contribution avant de faire une PR.
 
-## License
-This project is licensed under the MIT License. See [LICENSE.md](LICENSE.md) for details.
+## Licence
+Ce projet est sous licence MIT. Voir [LICENSE.md](LICENSE.md) pour plus de détails.
