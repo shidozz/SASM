@@ -42,10 +42,10 @@ Chaque instruction est formatée comme suit:
 ```
 
 L'indicateur de registre est composé comme suit:
-- **0**: Pas de registre utilisé.
-- **1**: Le premier opérande est un registre (A0=0, B0=10).
-- **2**: Le deuxième opérande est un registre (A0=0, B0=10).
-- **3**: Les deux opérandes sont des registres (A0=0, B0=10).
+- **0**) Pas de registre utilisé.
+- **1**) Le premier opérande est un registre (A0=0, B0=10).
+- **2**) Le deuxième opérande est un registre (A0=0, B0=10).
+- **3**) Les deux opérandes sont des registres (A0=0, B0=10).
 
 ## 5. Exemples de code
 
