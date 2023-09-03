@@ -1,3 +1,4 @@
 .vscode/
 sasm.exe
 *.o
+*.bts

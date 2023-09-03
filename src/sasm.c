@@ -2,6 +2,7 @@
 #include "../include/lexer.h"
 #include "../include/utils.h"
 #include "../include/parser.h"
+#include "../include/compiler.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -12,7 +13,7 @@ int Sasm(const char *inputF, const char *outputF) {
     
     char word[50];
     int wIndex = 0;
-
+    compiler_t *out = (compiler_t *)malloc(sizeof(compiler_t));
     struct Token tokens[100];
     int tIndex = 0;
 
@@ -34,22 +35,25 @@ int Sasm(const char *inputF, const char *outputF) {
     struct Instruction instructions[50];
     int instructionCount = 0;
     parseTokens(tokens, tIndex, instructions, &instructionCount);
-
+    if(file_exists(outputF))
+    {
+        remove(outputF);
+    }
     for (int i = 0; i < instructionCount; i++) {
         if (instructions[i].errOpcode == KW_ERROR){
             if(strcmp(instructions[i].operand1.value, "ERROR") == 0)
-                printf("Error(%s : %d): Bad token type used! This type of token (%s) can't be used in a %s opcode\n", inputF, i, TokenToString(instructions[i].operand1), KeywordToString(instructions[i].opcode));
+                fprintf(stderr, "Error(%s : %d): Bad token type used! This type of token (%s) can't be used in a %s opcode\n", inputF, i, TokenToString(instructions[i].operand1), KeywordToString(instructions[i].opcode));
             if(strcmp(instructions[i].operand2.value, "ERROR") == 0)
-                printf("Error(%s : %d): Bad token type used! This type of token (%s) can't be used in a %s opcode\n", inputF, i, TokenToString(instructions[i].operand2), KeywordToString(instructions[i].opcode));
-            return 1;
-        } else if(instructions[i].opcode == KW_RET){
-            printf("Instruction %d: Opcode = %s\n", i, KeywordToString(instructions[i].opcode));
-        } else if(instructions[i].opcode == KW_GLOBAL || instructions[i].opcode == KW_EXTERN || instructions[i].opcode == KW_JIE || instructions[i].opcode == KW_JIN || instructions[i].opcode == KW_JII || instructions[i].opcode == KW_JIS){
-            printf("Instruction %d: Opcode = %s, Operand1 = {type: %s, value: %s}\n", i, KeywordToString(instructions[i].opcode), TokenToString(instructions[i].operand1), instructions[i].operand1.value);
-        } else {
-            printf("Instruction %d: Opcode = %s, Operand1 = {type: %s, value: %s}, Operand2 = {type: %s, value: %s}\n", i, KeywordToString(instructions[i].opcode), TokenToString(instructions[i].operand1), instructions[i].operand1.value, TokenToString(instructions[i].operand2), instructions[i].operand2.value);
+                fprintf(stderr, "Error(%s : %d): Bad token type used! This type of token (%s) can't be used in a %s opcode\n", inputF, i, TokenToString(instructions[i].operand2), KeywordToString(instructions[i].opcode));
+            
+            exit(1);
         }
+        Compile(&instructions[i], out);
+        appendBytecodesToFile(outputF, out, sizeof(out));
     }
+
+    printf("\n");
+    showFile(outputF);
     free(input);
     return 0;
 }

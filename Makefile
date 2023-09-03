@@ -1,6 +1,6 @@
 
 OUTPUT = sasm.exe
-CFLAGS = -Wall -Iinclude
+CFLAGS = -g -Wall -Iinclude
 SRC = $(wildcard src/*.c)
 
 # Liste des fichiers objets

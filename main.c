@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <time.h>
 #include "./include/utils.h"
 #include "./include/lexer.h"
 #include "./include/sasm.h"
@@ -9,6 +10,7 @@
 
 
 int main(int argc, char *argv[]) {
+    srand(time(NULL));
     if (argc < 2) {
         printf("Utilisation : %s [options] fichier\n", argv[0]);
         return 1;

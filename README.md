@@ -38,6 +38,9 @@ global _start
     add A0 5
     jmp A1
 ```
+## Bytecode
+For detailed on Bytecode, please refor to the [Bytecode](docs/Bytecode.md).
+
 ## Documentation
 For detailed language specifications and advanced topics, please refer to the [Wiki](#) (coming soon).
 
